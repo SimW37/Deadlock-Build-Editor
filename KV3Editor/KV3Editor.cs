@@ -5,7 +5,7 @@ using ValveResourceFormat.ResourceTypes;
 
 if (args.Length != 3 || (args[0] != "decode" && args[0] != "encode"))
 {
-    Console.Error.WriteLine("Usage: Kv3Tool decode|encode INPUT OUTPUT");
+    Console.Error.WriteLine("Usage: KV3Editor decode|encode INPUT OUTPUT");
     return 1;
 }
 
