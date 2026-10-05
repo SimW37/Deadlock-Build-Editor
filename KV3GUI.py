@@ -16,8 +16,8 @@ from PySide6.QtWidgets import (
 
 
 ROOT = Path(__file__).resolve().parent
-PROJECT = ROOT / "Kv3Tool" / "Kv3Tool.csproj"
-DLL = ROOT / "Kv3Tool" / "bin" / "Release" / "net10.0" / "Kv3Tool.dll"
+PROJECT = ROOT / "KV3Editor" / "KV3Editor.csproj"
+DLL = PROJECT.parent / "bin" / "Release" / "net10.0" / "KV3Editor.dll"
 ENTRIES = re.compile(r"\b(Unpublished|SavedLastUsed|Favorites)\s*=|#\[\s*([0-9a-fA-F\s]*?)\]")
 FLOAT = struct.Struct("<f")
 
@@ -138,7 +138,7 @@ def convert(action: str, source: Path, destination: Path) -> None:
             raise RuntimeError(process.stdout + process.stderr)
 
     if not DLL.exists() or DLL.stat().st_mtime < max(
-        PROJECT.stat().st_mtime, (PROJECT.parent / "Program.cs").stat().st_mtime
+        PROJECT.stat().st_mtime, (PROJECT.parent / "KV3Editor.cs").stat().st_mtime
     ):
         run(["dotnet", "build", str(PROJECT), "-c", "Release", "--nologo", "-v", "quiet"])
     run(["dotnet", str(DLL), action, str(source), str(destination)])

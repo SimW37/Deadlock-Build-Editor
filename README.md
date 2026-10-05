@@ -7,13 +7,13 @@ A lightweight Qt GUI for editing Deadlock build box dimensions and exporting ver
 - Python 3.10+ with [PySide6](https://pypi.org/project/PySide6/)
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
 
-The GUI currently expects this source layout:
+Source layout:
 
 ```text
 KV3GUI.py
-Kv3Tool/
-├── Kv3Tool.csproj
-└── Program.cs
+KV3Editor/
+├── KV3Editor.csproj
+└── KV3Editor.cs
 ```
 
 ## Run
